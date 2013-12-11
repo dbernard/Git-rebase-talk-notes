@@ -47,4 +47,21 @@ Rebasing commits
 * "git rebase -i" is the primary tool for these tasks
 * rebase will use patch IDs to detect commits already on the source branch and
 silently drop them
-* WARNING: git rebase branch1 branch2 will rebase BRANCH2 onto BRANCH1
+* WARNING: "git rebase branch1 branch2" will rebase BRANCH2 onto BRANCH1
+
+Cherry-picking
+--------------
+* Useful for moving commits to other branches
+* How:
+  - Checkout branch you want to RECEIVE the cherry-pick
+  - "git cherry-pick COMMIT_ID" to bring commit to the branch
+
+Rebasing branches
+=================
+* 3 branches to look at:
+  - source branch - branch to be rebased
+  - diff branch - branch to compute which revisions to rebase
+  - dest branch - branch for src branch to be put on top of
+* Syntax - "git rebase --onto DEST_BRANCH DIFF_BRANCH SRC_BRANCH"
+  - EX: git rebase --onto master feature-one feature-two
+
